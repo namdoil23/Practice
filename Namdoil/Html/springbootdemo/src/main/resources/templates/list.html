@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3 th:text="${loginMember.username} + '님 환영합니다.'"></h3>
+    <div th:each="member : ${memberList}">
+        <h4 th:text="${member.id} + ' : ' + ${member.username}"></h4>
+    </div>
+</body>
+</html>

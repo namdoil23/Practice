@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <input type="hidden" id="errorMsg" name="errorMsg" th:value="${errorMsg}">
+        <div>
+            <label>아이디
+                <input type="text" name="username">
+            </label>
+        </div>
+        <div>
+            <label>비밀번호
+                <input type="password" name="password">
+            </label>
+        </div>
+        <input type="submit" value="로그인">
+        <input type="button" value="회원가입" onclick="location.href='/join'">
+    </form>
+    <script>
+        if (document.getElementById("errorMsg").value != ''){
+            if(document.getElementById("errorMsg").value == 'id not exist'){
+                alert(" 존재하지 않는 아이디입니다.")
+            }else if(document.getElementById("errorMsg").value == 'wrong password'){
+                alert(" 비밀번호가 일치하지 않습니다.")
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--생성한 Mapper 인터페이스와 namespace 속성으로 연결-->
+<mapper namespace="com.bit.springbootdemo.mapper.MemberMapper">
+    <insert id="join" parameterType="com.bit.springbootdemo.dto.MemberDto">
+        INSERT INTO  T_MEMBER(
+            ID
+          , USERNAME
+          , PASSWORD
+        ) VALUES (
+             MEMBER_SEQ.NEXTVAL
+           , #{username}
+           , #{password}
+        )
+    </insert>
+
+    <select id="memberCnt"
+            parameterType="com.bit.springbootdemo.dto.MemberDto"
+            resultType="int">
+        SELECT COUNT(*)
+            FROM T_MEMBER
+            WHERE USERNAME = #{username}
+    </select>
+
+    <select id="login"
+            parameterType="com.bit.springbootdemo.dto.MemberDto"
+            resultType="com.bit.springbootdemo.dto.MemberDto">
+        SELECT ID
+             , USERNAME
+            FROM T_MEMBER
+            WHERE USERNAME = #{username}
+              AND PASSWORD = #{password}
+    </select>
+
+    <select id="memberList"
+            resultType="com.bit.springbootdemo.dto.MemberDto">
+            SELECT ID
+                 , USERNAME
+                FROM T_MEMBER
+    </select>
+</mapper>

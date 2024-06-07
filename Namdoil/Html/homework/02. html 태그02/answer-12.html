@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>상품 주문서</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: purple;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 60px;
+        }
+        .order-section label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .order-section input[type="number"] {
+            width: 50px;
+            margin-left: 10px;
+        }
+        .buttons {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="section">
+                <fieldset><legend><h2>개인 정보</h2></legend>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="여백없이 입력">
+                <label for="contact">연락처</label>
+                <input type="text" id="contact" name="contact" placeholder="연락가능한 번호">
+                </fieldset>
+            </div>
+            <div class="section">
+                <fieldset><legend><h2>배송지 정보</h2></legend>
+                <label for="address">주소</label>
+                <input type="text" id="address" name="address">
+                <label for="phone">전화번호</label>
+                <input type="text" id="phone" name="phone">
+                <label for="memo">메모</label>
+                <textarea id="memo" name="memo"></textarea>
+                </fieldset>
+            </div>
+            <div class="section order-section">
+                <fieldset><legend><h2>주문 정보</h2></legend>
+                <label>
+                    <input type="checkbox" name="product1" value="Guatemala Antigua">
+                    과테말라 안티구아 (100g)
+                    <input type="number" name="quantity1" min="0" value="0"> 개
+                </label>
+                <label>
+                    <input type="checkbox" name="product2" value="Indonesia Mandheling">
+                    인도네시아 만델링 (100g)
+                    <input type="number" name="quantity2" min="0" value="0"> 개
+                </label>
+                <label>
+                    <input type="checkbox" name="product3" value="Tanzania Peaberry">
+                    탐라노도다(블렌딩) (100g)
+                    <input type="number" name="quantity3" min="0" value="0"> 개
+                </label>
+                </fieldset>
+            </div>
+            <div class="buttons">
+                <button type="submit">주문하기</button>
+                <button type="reset">다시 작성</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

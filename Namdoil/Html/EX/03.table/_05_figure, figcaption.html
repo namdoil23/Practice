@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표에 제목을 붙여주는 figure, 
+        figcaption 태그-figure 태그로 table태그를 감싸고 
+        figruecaption태그를 table태그의 자식으로 선언</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+    <table>
+        <figcaption>
+            <!--figcaption 태그도 태그안에 다른 태그를 선언해서
+            각각의 스타일을 별도로 지정할 수 있다.-->
+            <b style="color: red;">Frontend Framework</b>
+            <p>요새 자주 사용되는 SPA Framework</p>
+        </figcaption>
+        <tr>
+            <th>언어</th>
+            <th>개발회사</th>
+            <th>배포년도</th>
+        </tr>
+        <tr>
+            <th>React</th>
+            <th>메타(구 페이스북)</th>
+            <th>2013</th>
+        </tr>
+        <tr>
+            <th>Vue</th>
+            <th>MIT</th>
+            <th>2012</th>
+        </tr>
+    </table>      
+</figure>
+
+    
+</body>
+</html>
