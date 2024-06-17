@@ -1,0 +1,31 @@
+/*scale 함수: x축, y축으로 태그를 축소/확대하는 함수, 매개변수로 단위없이 실수 사용*/
+div {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.box1 {
+    background: orange;
+}
+
+.box2 {
+    background: skyblue;
+}
+
+.box3 {
+    background: lightgreen;
+}
+
+.box1:hover {
+    transform: scale(1.5, 0.7);
+}
+
+.box2:hover {
+    transform: scaleX(0.5);
+}
+
+.box3:hover {
+    transform: scaleY(1.2);
+}

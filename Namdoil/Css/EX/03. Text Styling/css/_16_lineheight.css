@@ -1,0 +1,19 @@
+/*line-height 속성: 윗 텍스트와 아래 텍스트 사이의 간격을 조절하는 속성*/
+p {
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px;
+    width: 200px;
+}
+
+.smallline {
+    line-height: 0.7;
+}
+
+.bigline {
+    line-height: 200%;
+}
+
+.naturalline {
+    line-height: 1.5;
+}

@@ -1,0 +1,18 @@
+/*3차원 transform은 2차원 평면에 z축을 추가한 변형
+웹 자체가 평면이기 때문에 많이 사용되지는 않는다.*/
+body {
+    perspective: 300px;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+.box {
+    background: orange;
+}
+
+.box:hover {
+    transform: translate3d(30px, 30px, 30px);
+}

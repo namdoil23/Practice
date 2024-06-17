@@ -1,0 +1,16 @@
+/*box-shadow 속성: 태그에 그림자를 만들어주는 속성*/
+div {
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.box1 {
+    box-shadow: 5px 5px gray inset;
+}
+
+.box2 {
+    box-shadow: 5px 5px 15px 5px gray inset;
+}

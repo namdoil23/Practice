@@ -1,0 +1,31 @@
+/*padding 속성: 컨텐츠와 테두리 사이의 여백을 조절하는 속성*/
+div {
+    width: 100px;
+    height: 100px;
+    background: skyblue;
+    display: inline-block;
+    margin: 15px;
+    border: 5px solid black;
+    /* box-sizing: border-box; */
+}
+
+.box1 {
+    /*모든 방향의 동일한 padding 값 적용*/
+    padding: 50px;
+}
+
+.box2 {
+    /*각 방향마다 다른 padding 값 적용*/
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+}
+
+.box3 {
+    padding: 30px 20px;
+}
+
+.box4 {
+    padding: 10px 20px 30px;
+}

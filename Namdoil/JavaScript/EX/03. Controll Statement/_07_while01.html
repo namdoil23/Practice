@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 구문</title>
+</head>
+<body>
+    <script>
+        // 1~100 까지 숫자 중에 2,3의 공배수를 모두 출력하는
+        // while문을 작성하세요. 출력은 document.write()로 <br>를 이용해서 한 줄에
+        // 하나의 공배수만 출력
+        let num = 1;
+        while(num <= 100) {
+            if(num % 2 == 0 && num % 3 ==0) 
+                document.write(`${num}<br>`);
+            num++;
+        }
+    </script>
+</body>
+</html>

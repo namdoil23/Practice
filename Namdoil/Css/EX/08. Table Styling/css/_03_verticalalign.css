@@ -1,0 +1,25 @@
+/*vertical-align 속성: 셀안의 내용을 수직정렬하는 속성*/
+table {
+    border: 1px solid black;
+    /*기본 값은 seperate로 설정하지 않으면 표와 셀의 테두리가 분리돼서 표출*/
+    border-collapse: collapse;
+    width: 500px;
+}
+
+th, td {
+    border: 1px solid black;
+    height: 100px;
+    text-align: center;
+}
+
+.td1 {
+    vertical-align: top;
+}
+
+.td2 {
+    vertical-align: middle;
+}
+
+.td3 {
+    vertical-align: bottom;
+}

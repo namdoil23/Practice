@@ -1,0 +1,25 @@
+/*align-self 속성: 특정 플렉스 항목만 선택하여 교차축 배치 방법을 정하는 속성*/
+.container {
+    display: flex;
+    border: 1px solid black;
+    height: 500px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: green;
+}
+
+.box1 {
+    align-self: center;
+}
+
+.box2 {
+    align-self: flex-end;
+}
+
+.box3 {
+    height: auto;
+    align-self: stretch;
+}

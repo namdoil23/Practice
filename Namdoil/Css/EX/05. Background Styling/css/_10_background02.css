@@ -1,0 +1,5 @@
+/*background 속성으로 background-color도 지정할 수 있다.*/
+body {
+    background: blue;
+}
+

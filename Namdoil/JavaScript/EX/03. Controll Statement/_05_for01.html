@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 구문</title>
+    <style>
+        .container {
+            width: 1000px;
+            height: 1000px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        const container = document.getElementsByClassName("container")[0];
+
+        const colorArr = ['red', 'green', 'blue', 'yellow', 'violet'];
+
+        let strDiv = "";
+
+        for(let i = 0; i < 5; i++){
+            strDiv += `<div class="box" id = "box${i}" style = "background: ${colorArr[i]}"></div>`;
+        }
+
+        console.log(strDiv);
+
+        container.innerHTML = strDiv
+        //innerHtml 태그 안에 넣을 수 있는 기능
+    </script>
+</body>
+</html>

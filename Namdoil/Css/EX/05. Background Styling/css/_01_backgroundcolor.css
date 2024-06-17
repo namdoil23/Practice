@@ -1,0 +1,25 @@
+/*background-color 속성: 배경색을 지정하는 속성*/
+body {
+    background-color: #0094ff;
+}
+
+/*background-color는 상속되지 않고
+기본값이 transparent(투명한배경)이기 때문에
+background-color를 따로 지정하지 않으면
+부모의 배경색이 그대로 표출된다.*/
+div {
+    width: 80%;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+h1 {
+    background-color: lightgreen;
+}
+
+p {
+    background-color: rgba(180, 180, 230, 0.9);
+    line-height: 30px;
+    border: 10px solid rgba(0, 0, 0, .9);
+    padding: 20px;
+}

@@ -1,0 +1,9 @@
+/*list-style 속성: 목록 관련 스타일(list-style-type, list-style-image, list-style-position)을
+                    한 번에 지정할 수 있는 속성*/
+.inside {
+    list-style: none;
+}
+
+.outside {
+    list-style: url('../../../images/dot.png') outside;
+}

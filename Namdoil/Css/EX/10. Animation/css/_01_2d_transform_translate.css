@@ -1,0 +1,33 @@
+/*transform: 태그의 크기나 위치를 변경하는 속성
+translate: 2차원 x축, y축으로 태그를 이동시키는 함수*/
+div {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.box1 {
+    background: orange;
+}
+
+.box2 {
+    background: skyblue;
+}
+
+.box3 {
+    background: lightgreen;
+}
+
+.box1:hover {
+    /*transform: 함수를 이용해서 태그의 크기나 위치를 변경*/
+    transform: translate(30px, 30px);
+}
+
+.box2:hover {
+    transform: translateX(50px);
+}
+
+.box3:hover {
+    transform: translateY(20px);
+}

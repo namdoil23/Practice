@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자가 입력한 값만큼 오른쪽으로 이동시키기</title>
+    <style>
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // prompt창 열어서 사용자가 숫자로 거리 입력
+        const box = document.getElementsByClassName("box")[0];
+        
+        // prompt에서 입력되는 값은 string 타입으로 받아온다.
+        const move = window.prompt("이동 시킬 거리를 입력하세요.")
+         
+        // 입력한 거리만큼 box 오른쪽으로 이동시키기
+        // Number.isNaN() 메소드: 매개변수로 연산이 되지 않는 값이 들어오면 true,
+        //                          연산이 되는 값을 매개변수로 받으면 false를 리턴한다.
+        if(!Number.isNaN(move)) {
+            box.style.left = move + 'px';
+        } else {
+            alert("숫자를 입력하세요")
+        }
+    </script>
+</body>
+</html>

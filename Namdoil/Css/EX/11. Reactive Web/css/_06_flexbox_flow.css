@@ -1,0 +1,13 @@
+/*flex-flow 속성: flex-direction과 flex-wrap을 한 번에 지정할 수 있는 속성*/
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    height: 1000px;
+}
+
+.box {
+    width: 500px;
+    height: 500px;
+    background: red;
+    color: white;
+}
