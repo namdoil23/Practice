@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강제 이벤트 발생</title>
+</head>
+<body>
+    <div>
+        <button type="button" id="btn1">버튼1</button>
+    </div>
+    <div>
+        <button type="button" id="btn2">버튼2</button>
+    </div>
+    <div>
+        <button type="button" id="btn3">버튼3</button>
+    </div>
+    <a href="https://www.naver.com" id="link">네이버</a>
+    <script>
+        const btn1 = document.querySelector("#btn1");
+        const btn2 = document.querySelector("#btn2");
+        const btn3 = document.querySelector("#btn3");
+        const link = document.querySelector("#link");
+
+        let clickCnt = 0;
+
+        btn1.addEventListener("click", (e) => {
+            alert(`클릭횟수: ${++clickCnt}`);
+        });
+
+        btn2.addEventListener("click", (e) => {
+            // btn1을 강제로 클릭한 것처럼 이벤트를 발생시킨다.
+            btn1.click();
+        });
+
+        // 버튼3 누를시 link태그 작동하도록
+        btn3.addEventListener("click", (e) => {
+                link.click();
+        });
+
+        // a 태그 누를시 버튼1이 작동하도록
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            btn1.click();
+        });
+    </script>
+</body>
+</html>

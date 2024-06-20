@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript의 내장객체 - Math</title>
+</head>
+<body>
+    <script>
+        const num = 3.1234;
+
+        // 1. ceil: 올림, floor: 버림, round: 반올림
+        console.log(Math.ceil(num));
+        console.log(Math.floor(num));
+        console.log(Math.round(num));
+
+        // 소수점 n자리까지 올림, 버림, 반올림
+        // Math.ceil/floor/round(매개변수 * 10^n) / 10^n
+        // 소수점 2자리까지 올림, 버림, 반올림
+        console.log(Math.ceil(num * 100) / 100);
+        console.log(Math.floor(num * 100) / 100);
+        console.log(Math.round(num * 100) / 100);
+
+        // 2. max: 주어진 매개변수 중 최대값 리턴
+        //    min: 주어진 매개변수 중 최소값 리턴
+        // Java의 Math.max/min 함수는 매개변수를 두 개까지만 받을 수 있었는데
+        // JavaScript의 Math.max/min 함수는 매개변수를 여러개 받을 수 있다.
+        console.log(Math.max(244, 255, 133, 10));
+        console.log(Math.min(244, 255, 133, 10));
+
+        // 3. random: 0 ~ 1까지의 랜덤한 실수 리턴
+        console.log(Math.random());
+
+        // 1 ~ 10까지의 랜덤한 정수 값
+        console.log(Math.floor(Math.random() * 10) + 1);
+    </script>
+</body>
+</html>

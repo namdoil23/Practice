@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열의 고차 함수 - reduce</title>
+</head>
+<body>
+    <script>
+        const arr = [13, 27, 78, 91, 67];
+
+        const max = arr.reduce((acc, cur) => (acc > cur ? acc : cur), 0);
+
+        console.log(max);
+
+        // reduce 함수를 사용해서 배열의 총합을 구하세요.
+
+        const sum = arr.reduce((acc, cur, idx) => (acc += cur), 0);
+
+        console.log(sum);
+    </script>
+</body>
+</html>
