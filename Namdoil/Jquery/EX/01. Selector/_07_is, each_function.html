@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>is, each fucntion</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h3>메뉴</h3>
+    <label><input type="checkbox" name="food" value="치킨">치킨</label>
+    <label><input type="checkbox" name="food" value="삼겹살">삼겹살</label>
+    <label><input type="checkbox" name="food" value="김밥">김밥</label>
+    <label><input type="checkbox" name="food" value="피자">피자</label>
+    <label><input type="checkbox" name="food" value="햄버거">햄버거</label>
+    <label><input type="checkbox" name="food" value="초밥">초밥</label>
+    <label><input type="checkbox" name="food" value="파스타">파스타</label>
+    <label><input type="checkbox" name="food" value="냉면">냉면</label>
+    <label><input type="checkbox" name="food" value="족발">족발</label>
+    <button type="button" id="btn">주문</button>
+    <script>
+        $(() => {
+            $("#btn").on("click", (e) => {
+                const orderList = [];
+
+                // 1. each() 메소드: 선택된 태그들을 하나 씩 순회하면서 콜백함수를 한 번씩 실행
+                // 선택자.each(콜백함수);
+                // $.each(선택자, 콜백함수);
+                $("input[name='food']").each(function() {
+                    //$(this): 현재 선택된 태그
+                    console.log($(this));
+
+                    // 2. is() 메소드: 특정 태그의 상태를 검사하는 메소드(true, false 리턴)
+                    // 매개변수로 가상클래스를 이용한다.
+                    // input[name='food'] 중에 체크 된 체크박스만 조건문에 걸린다.
+                    if($(this).is(":checked")) {
+                        orderList.push($(this).val());
+                    }
+                });
+
+                console.log(orderList);
+                alert(`${orderList}이(가) 주문됐습니다.`);
+            });
+
+            $("input[name='food']").on("click", function() {
+                // 여기서 $(this)는 click된 체크박스 태그
+                if($(this).is(":checked")) {
+                    $(this).parent().css("background", "red")
+                            .css("border", "1px solid black");
+                    return;
+                }
+
+                $(this).parent().css("background", "white")
+                        .css("border", "none");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery 직접 선택자</title>
+    <!--jquery 라이브러리 링크-->
+    <!--다운로드한 파일을 링크-->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <!--CDN 방식으뢰 웹에 올려진 파일을 링크-->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+</head>
+<body>
+    <ul>
+        <li id="html">Html</li>
+        <li class="js">JavaScript</li>
+        <li class="js">Jquery</li>
+    </ul>
+    <script>
+        // window.addEventListner("load", () => {})
+        // $(() => {}), $(function() {})
+        // $(document).ready(() => {}), $(document).ready(function() {}): jquery 3.0부터 지원 종료
+        // DOM 객체가 모두 로드됐을 때 코드를 실행
+        $(() => {
+            // 1. 직접 선택자
+            // $("css선택자")
+            // 1-1. 전체 선택자
+            console.log($("*"));
+            // css메소드: 스타일 속성을 변경하거나 확인하는 메소드
+            $("*").css("border", "1px solid black");
+
+            // 1-2. 아이디 선택자
+            console.log($("#html"));
+            console.log(document.querySelector("#html"));
+            $("#html").css("background", "yellow");
+
+            // 1-3. 클래스 선택자
+            console.log($(".js"));
+            $(".js").css("background", "lightgreen");
+
+            // 1-4. 태그 선택자
+            $("li").css("color", "white");
+
+            // 1-5. 그룹 선택자
+            $("#html, js").css("fontSize", "25px");
+        });
+    </script>
+</body>
+</html>
