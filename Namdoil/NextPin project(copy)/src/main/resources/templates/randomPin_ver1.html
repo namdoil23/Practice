@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPin</title>
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="../images/NP_pavicon.png" rel="icon" type="image/png">
+    <link href="css/kakaoMap.css" rel="stylesheet"/>
+    <link href="css/html_apply/side-bar_style.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet"> <!-- 모달 스타일 시트 추가 -->
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b65896833a405b71281c94d1dd53a4de&libraries=services"></script>
+</head>
+<body>
+<!-- 사이드바 -->
+<div id="side-bar">
+    <li id="title">
+        <!-- 메인화면으로 이동 -->
+        <a href="#">
+            <img src="../images/NP_icon.png" alt="NP아이콘">
+        </a>
+    </li>
+    <!-- 메뉴들 -->
+    <div id="icons">
+        <li class="icon">
+            <!-- 코스로 이동 -->
+            <a href="#">
+                <img src="../images/pin.png" alt="코스아이콘" id="couse-icon">
+                <span>코스</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 일정으로 이동 -->
+            <a href="calendar.html">
+                <img src="../images/calendar.png" alt="일정아이콘" id="calendar-icon">
+                <span>일정</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 커뮤니티로 이동 -->
+            <a href="#">
+                <img src="../images/community.png" alt="커뮤니티아이콘" id="community-icon">
+                <span id="community-span">커뮤니티</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 랜덤핀으로 이동 -->
+            <a href="#">
+                <img src="../images/random.png" alt="랜덤아이콘" id="random-icon">
+                <span>랜덤핀</span>
+            </a>
+        </li>
+    </div>
+    <div id="profile">
+        <li>
+            <!-- 로그인으로 이동 -->
+            <a href="#">
+                <img src="../images/profile.png" alt="기본 프로필 이미지">
+            </a>
+        </li>
+    </div>
+</div>
+<!-- 지역 선택 모달 HTML -->
+<div id="regionModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>지역을 선택하세요</h2>
+        <input type="text" id="regionInput" placeholder="지역 이름을 입력하세요">
+        <button id="searchRegionButton">검색</button>
+    </div>
+</div>
+
+<script>
+    var placeData = [];
+    var markers = [];
+    var mapContainer = document.getElementById('map');
+    var mapOption = {
+        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+        level: 3
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    var ps = new kakao.maps.services.Places();
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+    function searchPlaces(keyword) {
+        if (!keyword.replace(/^\s+|\s+$/g, '')) {
+            alert('키워드를 입력해주세요!');
+            return false;
+        }
+        ps.keywordSearch(keyword, placesSearchCB, {radius: 500});
+    }
+
+    function placesSearchCB(data, status, pagination) {
+        if (status === kakao.maps.services.Status.OK) {
+            placeData = data;
+            displayPlaces(data);
+        } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+            alert('검색 결과가 존재하지 않습니다.');
+        } else if (status === kakao.maps.services.Status.ERROR) {
+            alert('검색 결과 중 오류가 발생했습니다.');
+        }
+    }
+
+    function displayPlaces(places) {
+        var bounds = new kakao.maps.LatLngBounds();
+        removeMarker();
+
+        for (var i = 0; i < places.length; i++) {
+            var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                marker = addMarker(placePosition, i);
+
+            bounds.extend(placePosition);
+
+            (function(marker, title) {
+                kakao.maps.event.addListener(marker, 'mouseover', function() {
+                    displayInfowindow(marker, title);
+                });
+                kakao.maps.event.addListener(marker, 'mouseout', function() {
+                    infowindow.close();
+                });
+            })(marker, places[i].place_name);
+        }
+        map.setBounds(bounds);
+    }
+
+    function addMarker(position, idx) {
+        var marker = new kakao.maps.Marker({
+            position: position
+        });
+        marker.setMap(map);
+        markers.push(marker);
+        return marker;
+    }
+
+    function removeMarker() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+
+    function displayInfowindow(marker, title) {
+        var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+    }
+
+    // 지역 선택 모달 관련 이벤트 리스너
+    var regionModal = document.getElementById('regionModal');
+    var closeSpan = document.getElementsByClassName("close")[0];
+
+    closeSpan.onclick = function() {
+        regionModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == regionModal) {
+            regionModal.style.display = "none";
+        }
+    }
+
+    // 랜덤핀 버튼 클릭 시 모달 띄우기
+    var randomPinButton = document.getElementById('randomPinButton');
+    randomPinButton.onclick = function() {
+        regionModal.style.display = "block";
+    }
+
+    // 지역 검색 버튼 클릭 시 검색 수행 후 모달 숨기기
+    var searchRegionButton = document.getElementById('searchRegionButton');
+    searchRegionButton.onclick = function() {
+        var regionInput = document.getElementById('regionInput').value;
+        searchPlaces(regionInput);
+        regionModal.style.display = "none";
+    }
+
+</script>
+
+</body>
+</html>

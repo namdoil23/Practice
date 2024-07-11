@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/nextpin_logo.png">
+    <title>NextPin 회원가입</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/html_apply/signUp.css" rel="stylesheet">
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap-show-password.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="login" id="backToLogin">
+            <img src="images/icon_backButton.png" alt="뒤로가기">
+        </a>
+    </header>
+    <div class="signup-container" id="signupContainer">
+        <a href="main">
+            <img src="images/Logo.png" alt="NextPin Logo">
+        </a>
+        <form class="signup-form" id="signupForm" onsubmit="return false;">
+            <div class="flex-container">
+                <label style="position: relative;" for="inputId">아이디</label>
+                <p id="id-validate-message1"></p>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="inputId" class="form-control" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-primary mb" type="button" id="button-addon1">중복확인</button>
+            </div>
+            <p id="id-validate-message2">사용 가능한 아이디입니다. / 사용 불가능한 아이디입니다.</p>
+            
+            <div class="flex-container">
+                <label style="position: relative;" for="inputNickname">닉네임</label>
+                <p id="id-validate-message3"></p>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" id="inputNickname" class="form-control" placeholder="닉네임" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-primary mb" type="button" id="button-addon2">중복확인</button>
+            </div>
+            <p id="id-validate-message4">사용 가능한 닉네임입니다. / 사용 불가능한 닉네임입니다.</p>
+            
+            <div class="flex-container">
+                <label style="position: relative;" for="inputPassword">비밀번호</label>
+                <p id="id-validate-message5"></p>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="password" id="inputPassword" name="inputPassword" data-toggle="password" placeholder="비밀번호">
+            </div>
+            
+            <div class="flex-container">
+                <label style="position: relative;" for="inputPasswordChk">비밀번호 확인</label>
+                <p id="id-validate-message6"></p>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" type="password" id="inputPasswordChk" name="inputPasswordChk" data-toggle="password" placeholder="비밀번호(재입력)">
+            </div>
+            
+            <button class="btn btn-primary mb" type="submit">회원가입</button>
+        </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="modalMsg1">정말 이 페이지를 나가시겠습니까??</p>
+                    <p id="modalMsg2">(내용은 저장되지 않습니다.)</p>
+
+                    <button type="button" class="btn" id="modalYes">예</button>
+                    <button type="button" class="btn" id="modalNo" data-bs-dismiss="modal">아니오</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/signUp.js"></script>
+</body>
+</html>

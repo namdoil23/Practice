@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPin</title>
+    <link href="css/reset.css" rel="stylesheet"/>
+    <!-- 파비콘 설정 -->
+    <link href="../images/NP_pavicon.png" rel="icon" type="image/png">
+    <!-- 사이드바 스타일 시트 적용 -->
+    <link href="css/kakaoMap.css" rel="stylesheet"/>
+    <link href="css/html_apply/sidebar_randomPin.css" rel="stylesheet" >
+    <link rel="stylesheet" href="css/html_apply/randomPinModal.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b65896833a405b71281c94d1dd53a4de&libraries=services"></script>
+</head>
+<body>
+<!-- 사이드바 -->
+<div id="side-bar">
+    <li id="title">
+        <!-- 메인화면으로 이동 -->
+        <a href="main">
+            <img src="../images/NP_icon.png" alt="NP아이콘">
+        </a>
+    </li>
+    <!-- 메뉴들 -->
+    <div id="icons">
+        <li class="icon">
+            <!-- 코스로 이동 -->
+            <a href="mainCourse">
+                <img src="../images/pin.png" alt="코스아이콘" id="couse-icon">
+                <span>코스</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 일정으로 이동 -->
+            <a href="calendar">
+                <img src="../images/icon_calendar.png" alt="일정아이콘" id="calendar-icon">
+                <span>일정</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 커뮤니티로 이동 -->
+            <a href="community">
+                <img src="../images/icon_community.png" alt="커뮤니티아이콘" id="community-icon">
+                <span id="community-span">커뮤니티</span>
+            </a>
+        </li>
+        <li class="icon">
+            <!-- 랜덤핀으로 이동 -->
+            <a href="#">
+                <img src="../images/icon_random.png" alt="랜덤아이콘" id="random-icon">
+                <span>랜덤핀</span>
+            </a>
+        </li>
+    </div>
+    <div id="profile">
+        <li>
+            <!-- 로그인으로 이동 -->
+            <a href="login">
+                <img src="../images/profile.png" alt="기본 프로필 이미지">
+            </a>
+        </li>
+    </div>
+</div>
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:135%;position:relative;overflow:hidden;"></div>
+</div>
+
+<div class="modal-content" id="modal-cont">
+    <h2>어디로 가시겠습니까?</h2>
+    <input type="text" placeholder="지역을 입력해주세요." onkeydown="handleKeyPress(event)">
+    <button onclick="searchPlaces()">전국 어디든!</button>
+</div>
+
+<!-- Loading spinner -->
+<div id="loading-spinner" style="display:none; text-align: center;">
+    <img src="../images/icon_spinner.png" alt="Loading Spinner">
+    <p>실시간 랜덤핀을 돌리는 중...</p>
+</div>
+<script src="js/randomPin.js"></script>
+</body>
+
+</html>

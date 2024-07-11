@@ -1,0 +1,42 @@
+
+/* 전체 스타일 */
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+}
+/* 왼쪽 사이드바 메뉴 */
+nav {
+    margin: 1%;
+    vertical-align: middle;
+    border-right: 2px solid #EEEEEE;
+}
+/* 왼쪽 사이드바 하이퍼링크 */
+nav a {
+    text-decoration-line: none;
+}
+/* 왼쪽 사이드바 하이퍼링크 글자색 */
+nav a:link {
+    color: black;
+    text-decoration-line: none;
+}
+/* 왼쪽 사이드바 하이퍼링크(링크를 한 번이상 탔을 때) 글자색 */
+nav a:visited {
+    color: black;
+    text-decoration-line: none;
+}
+/* 왼쪽 사이드바 메뉴 이미지 */
+.nav_icon {
+    margin-top: 50%;
+    text-align: center;
+}
+/* 왼쪽 사이드바 메뉴 개인프로필 */
+.nav_mypage {
+    text-align: center;
+}
+/* 왼쪽 사이드바 이미지 배치 */
+.nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

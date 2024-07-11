@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--생성한 Mapper 인터페이스와 namespace 속성으로 연결-->
+<mapper namespace="com.test.api.mapper.DataMapper">
+    <insert id="kakaoInsert" parameterType="list">
+        INSERT INTO KAKAO_MAP_DATA
+        (
+            address_name,
+            category_group,
+            category_group_name,
+            category_name,
+            distance,
+            id,
+            phone,
+            place_name,
+            place_url,
+            road_address_name,
+            x,
+            y)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.addressName},
+            #{item.categoryGroup, jdbcType=VARCHAR},
+            #{item.categoryGroupName},
+            #{item.categoryName},
+            #{item.distance},
+            #{item.id},
+            #{item.phone},
+            #{item.placeName},
+            #{item.placeUrl},
+            #{item.roadAddressName},
+            #{item.x},
+            #{item.y}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="kakaoTestInsert" parameterType="com.test.api.dto.KakaoMapDto">
+            INSERT INTO KAKAO_MAP_DATA(
+                address_name
+                , category_group
+                , category_group_name
+                , category_name
+                , distance
+                , id
+                , phone
+                , place_name
+                , place_url
+                , road_address_name
+                , x
+                , y
+                ) VALUES (
+                #{address_name}
+                , #{category_group, jdbcType=VARCHAR}
+                , #{category_group_name}
+                , #{category_name}
+                , #{distance}
+                , #{id}
+                , #{phone}
+                , #{place_name}
+                , #{place_url}
+                , #{road_address_name}
+                , #{x}
+                , #{y}
+            )
+    </insert>
+</mapper>

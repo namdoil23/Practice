@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bzy>
+    <!-- 다음은 계정 구성입니다. userName과 passWord에 Ultimate 버전 이상의 Octopus 계정과 비밀번호를 각각 입력하세요. -->
+    <userName>0wapclwx</userName>
+    <passWord>Cjh031206!</passWord>
+    <!--구성 매개변수-->
+    <!-- 시작 오프셋은 0이고 후속 오프셋은 Octopus가 반환한 JSON을 기반으로 다음 데이터 배치를 얻는 데 사용됩니다. -->
+    <offSet>0</offSet>
+</bzy>

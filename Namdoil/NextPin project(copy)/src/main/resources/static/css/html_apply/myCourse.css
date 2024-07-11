@@ -1,0 +1,308 @@
+/* 문자깨짐 방지 */
+/* 안넣으면 스타일 시트 적용 안됌 */
+@charset "utf-8";
+
+/* 글꼴 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 폰트설정 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 스타일 */
+body {
+    font-family: 'pretendard-semibold';
+    margin: 0;
+    display: flex;
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+/*----------------------------------------------------------------------------*/
+/*카카오맵 불러오기*/
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:100%;height:700px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+/*----------------------------------------------------------------------------*/
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    margin: 0;
+    display: flex;
+}
+
+/* Flexbox 스타일 적용 */
+#container {
+    display: flex;
+}
+#side-bar {
+    width: 200px; /* 사이드바 너비 설정 */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px; /* 사이드바와의 여백 설정 */
+}
+
+/*장소 홈/리뷰*/
+.place {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    max-height: 100vh; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤바 추가 */
+}
+
+.place-info {
+    margin: 30px;
+}
+
+.place-info img {
+    width: 100%;
+}
+
+.place-info h3 {
+    margin: 15px;
+}
+
+.place-info h3 span {
+    font-size: small;
+    color: #8d8d8d;
+}
+
+.place-info p {
+    font-size: smaller;
+    margin: 15px;
+}
+
+.place-info p span.red {
+    color: #ff4949;
+}
+
+span.blue {
+    color: #4098FF;
+}
+
+.place-info .buttons {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+}
+
+.place-info button.homeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex: 1; /* Flexbox 속성으로 각각 반씩 차지 */
+    padding: 10px 0; /* 상하 여백을 추가하고 좌우 여백은 제거 */
+    margin: 0; /* 버튼 간의 간격을 제거 */
+    border-radius: 0; /* 버튼 경계선의 둥근 모서리를 제거 */
+    text-align: center; /* 버튼 텍스트를 가운데 정렬 */
+    border-bottom: 2px solid #e1e1e1; /* 아래쪽 보더에 색상 적용 */
+    font-weight: bold;
+}
+
+.place-info button.reviewButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex: 1; /* Flexbox 속성으로 각각 반씩 차지 */
+    padding: 10px 0; /* 상하 여백을 추가하고 좌우 여백은 제거 */
+    margin: 0; /* 버튼 간의 간격을 제거 */
+    border-radius: 0; /* 버튼 경계선의 둥근 모서리를 제거 */
+    text-align: center; /* 버튼 텍스트를 가운데 정렬 */
+    border-bottom: 2px solid #e1e1e1; /* 아래쪽 보더에 색상 적용 */
+    font-weight: bold;
+}
+
+.place-info .buttons .homeButton:hover,
+.place-info .buttons .reviewButton:hover {
+    color: #4098FF; /* 버튼 호버 시 글자색 */
+}
+
+/*메모*/
+.memo-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+.memo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.memo-title h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.memo-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4098FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    resize: none; /* 크기 조절 막기 */
+}
+.memo-input:disabled {
+    background: #ffffff;
+    border: 1px solid #c3c3c3;
+}
+
+/*캘린더 날짜 선택*/
+.calendar {
+    padding: 20px;
+}
+
+.calendar h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.calendar .input__item {
+    margin-top: 10px;
+    padding: 0;
+}
+
+/*색상 선택*/
+
+.color {
+    padding: 20px;
+}
+
+.color h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.colorPalette {
+    border: 1px solid #c3c3c3;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap; /* 버튼이 넘치면 자동으로 다음 줄로 내리기 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.colorPalette button {
+    width: 40px; /* 버튼의 크기 조절 */
+    height: 40px; /* 버튼의 크기 조절 */
+    border-radius: 50%; /* 원형 모양 */
+    margin: 10px 5px; /* 버튼 간격 조절 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 오버 시 포인터 모양 */
+}
+
+/**/
+.logo img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu button {
+    width: 80px;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu button:hover {
+    background-color: #ddd;
+}
+
+.ui-datepicker { width: 270px; padding: 0; display: none; border: 0; margin-top: 10px;}
+.ui-widget.ui-widget-content { border: 0; border-radius: 3px; overflow: hidden; background: #ffffff;}
+.ui-datepicker .ui-widget-header { position: relative; padding: 6px 0 36px 0; border: 0; background: #4098FF ; color: #fff; border-radius: 0; }

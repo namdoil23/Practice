@@ -1,0 +1,398 @@
+.container {
+    width: 738px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.profile {
+    display: flex;
+    text-align: left;
+    margin-top: 40px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.profile h2 {
+    margin: 10px;
+    font-size: 25px;
+}
+.profile p {
+    margin: 10px;
+    color: #666;
+    font-size: 21px;
+}
+.profile textarea {
+    margin: 0;
+    color: #666;
+    font-size: 21px;
+    width: 100%;
+    border: 1px solid #ccc;
+    resize: none;
+    display: none;
+}
+.edit-icon {
+    cursor: pointer;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+.pin {
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.pin-red {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    border-radius: 20px;
+
+}
+.highlight {
+    color: #FFC061;
+}
+
+.pin .title {
+
+    justify-content: space-between;
+    align-items: center;
+    font-size: 21px;
+    color: white;
+    text-align: center;
+}
+
+
+.settings {
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+.settings a {
+    color: red;
+    text-decoration: none;
+}
+
+.course-details {
+    display: none;
+    overflow-y: auto;
+    height: 40%;
+}
+
+.coursepin {
+    display: flex;
+}
+
+.course-button {
+    background-color: #f8d7da;
+    border: none;
+    padding: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 90%;
+    text-align: left;
+}
+
+.course-details .day {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+
+.course-details h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.course-details ol {
+    padding-left: 20px;
+}
+
+.heart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 가운데 정렬 */
+     /* 아이콘과 숫자를 세로로 배치 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative; /* 상대적 위치 지정 */
+}
+
+.heart-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    margin-bottom: 5px; /* 아이콘과 숫자 사이의 간격 조정 */
+}
+
+.heart-button span {
+    color: #000000;
+    text-align: center;
+}
+
+.mycoursepin {
+    display: flex;
+}
+.content-title{
+    font-size: 1.05rem;
+    padding-bottom: 1rem;
+}
+.content-title-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+}
+.mypin-num{
+    color: #4098FF;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+/*mypin,관심있는코스 목록 공통 속성*/
+.content ul li .container{
+    width: 24rem;
+    height: 5rem;
+    text-align: center;
+    margin: 1rem;
+    height: 3rem;
+    border: none;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+}
+.content ul li .container input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+}
+.content ul li .container button{
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    right: 5px;
+}
+
+/*각 코스 목록 안에 미트볼(...세로로 된 거) 버튼 속성*/
+.meatball-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+/*각 미트볼에 대한 속성*/
+.meatball-btn .dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0.15rem 1rem;
+    transition: background-color 0.3s ease;
+    display: block;
+}
+.meatball-btn:hover .dot {
+    background-color: #666;
+}
+
+/*미트볼 버튼을 누르면 나오는 popover창 속성*/
+#popover-content ul li{
+    border-bottom: 1px solid #666;
+}
+
+/*mypin목록 속성*/
+.mypin-content ul li .container{
+    background-color: #eccccf;
+}
+/*관심있는코스 목록 속성*/
+.like-content ul li .container{
+    background-color: #badce3;
+}
+
+/*콜랩스 요소(my pin과 관심있는코스의 세부내용)에 대한 속성*/
+.collapse {
+    transition: height 0.3s ease-in-out;
+    overflow: hidden;
+}
+.collapsing{
+    height: 0;
+    transition: height 0.3s ease-in-out;
+}
+
+/*각 일차별 내용이 담긴 card에 대한 속성*/
+.card ul{
+    /*background-color: #FFC061; !*카드 색상 지정*!*/
+    border-radius: 1rem; /*카드 모서리 둥글게*/
+    color: white;
+    padding: 1.5rem;
+    margin: 1rem 0; /*각 카드의 위아래 여백 주기*/
+}
+.card ul li{
+    border-bottom: 1px solid white; /* 하단에 경계선 추가 */
+    padding: 0.8rem 1rem 0.4rem; /* 위아래 여백 추가, 텍스트의 왼쪽 여백 추가 */
+}
+/* 마지막 li 태그에는 경계선 제거 */
+.card ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+/*card(코스)를 펼쳤을 때, 아래에 있는 코스 목록과 card 사이에 여백주기*/
+.card-body{
+    margin-bottom: 3rem;
+}
+
+/*각 가게 옆에 붙는 pin아이콘 속성*/
+.pin-icon{
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+button, .modal-buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.settings a {
+    color: red;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 200px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content1 {
+    background-color: white;
+    margin: 5% auto;
+    padding: 70px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close-btn {
+    color: #4098FF;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #4098FF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons button {
+    font-size: 25px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 30px;
+    width: 120px;
+}
+
+.yes-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.no-btn {
+    background-color: #ffc107;
+    color: white;
+}
+/* 사이드바 토글 버튼 */
+.sidebar-arrow-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    text-align: center;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    z-index: 2;
+}
+
+.sidebar-arrow-container .sidebar-toggle {
+    position: absolute;
+    top: 50vh;
+    left: 30%;
+    width: 50px;
+    height: 80px;
+    border-left: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: url('../../images/icon_toggleButton.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+.sidebar-container.open {
+    width: 200px;
+}
+/* 장소 리스트 */
+.course-details {
+    margin-top: 4%;
+    height: 420px;
+    overflow-y: auto;
+}
+/* 스크롤바 가로길이 */
+.course-details::-webkit-scrollbar {
+    width: 10px;
+}
+/* 스크롤바 바영역 색상 */
+.course-details::-webkit-scrollbar-thumb {
+    background-color: #40a0ff;
+    border-radius: 5px;
+}
+/* 스크롤바 스크롤영역 색상 */
+.course-details::-webkit-scrollbar-track {
+    background-color: #E1E1E1;
+    border-radius: 5px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPin</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- 파비콘 설정 -->
+    <link rel="icon" type="image/png" href="../images/NP_pavicon.png">
+    <!-- 사이드바 스타일 시트 적용 -->
+    <link rel="stylesheet" href="css/html_apply/side-bar_style.css">
+    <link rel="stylesheet" href="css/html_apply/calendar_main.css">
+    <script src="js/calendar_main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div class="main">
+        <!-- 사이드바 -->
+        <nav id="side-bar">
+            <div class="wrapper">
+                <li id="title">
+                    <!-- 메인화면으로 이동 -->
+                    <a href="main" class="link">
+                        <img src="../images/NP_icon.png" alt="NP아이콘">
+                    </a>
+                </li>
+                <!-- 메뉴들 -->
+                <div id="icons">
+                    <li class="icon menu">
+                        <!-- 코스로 이동 -->
+                        <a href="mainCourse" class="link">
+                            <img src="../images/pin.png" alt="코스아이콘" id="couse-icon">
+                            <span>코스</span>
+                        </a>
+                    </li>
+                    <li class="icon menu">
+                        <!-- 일정으로 이동 -->
+                        <a href="calendar" class="link">
+                            <img src="../images/icon_calendar-hover.png" alt="일정아이콘" id="calendar-icon">
+                            <span>일정</span>
+                        </a>
+                    </li>
+                    <li class="icon menu">
+                        <!-- 커뮤니티로 이동 -->
+                        <a href="community" class="link">
+                            <img src="../images/icon_community.png" alt="커뮤니티아이콘" id="community-icon">
+                            <span id="community-span">커뮤니티</span>
+                        </a>
+                    </li>
+                    <li class="icon menu">
+                        <!-- 랜덤핀으로 이동 -->
+                        <a href="randomPin" class="link">
+                            <img src="../images/icon_random.png" alt="랜덤아이콘" id="random-icon">
+                            <span>랜덤핀</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+            <div id="profile">
+                <li class="menu">
+                    <!-- 로그인으로 이동 -->
+                    <a href="login" class="link">
+                        <img src="../images/profile.png" alt="기본 프로필 이미지">
+                    </a>
+                </li>
+            </div>
+        </nav>
+        <!-- 캘린더 -->
+        <div class="calendar-main">
+            <div class="header">
+                <button id="today">Today</button>
+                <button id="prev">&lt;</button>
+                <span id="current-month-year"></span>
+                <button id="next">&gt;</button>
+            </div>
+            <div id="calendar"></div>
+        </div>
+        <div id="calendar-panel">
+            <h1 id="panel-title"></h1>
+            <div id="panel-content">
+                <ul class="list">
+                    <li>
+                        <div class='collapse' id='collapseExample1'>
+                            <!--card,card-body: 부트스트랩에서 미리 정의된 스타일. 카드의 레이아웃, 배경색, 테두리 등이 미리 정의되어 있음.-->
+                            <div class="card card-body">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button id="share-button"></button>
+        </div>
+    </div>
+</body>
+
+</html>

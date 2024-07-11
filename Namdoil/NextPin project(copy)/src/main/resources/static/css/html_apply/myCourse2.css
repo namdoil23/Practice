@@ -1,0 +1,446 @@
+/* 문자깨짐 방지 */
+/* 안넣으면 스타일 시트 적용 안됌 */
+@charset "utf-8";
+
+/* 글꼴 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'pretendard-semibold';
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow-x: hidden;
+}
+
+#side-bar {
+    width: 170px;
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#side-bar #myPin {
+    margin-bottom: 2%;
+}
+/* 코스, 일정, 커뮤니티, 랜덤핀 */
+#icons {
+    width: 90px;
+    margin: 0 auto;
+}
+
+/* NP 타이틀 */
+#title {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0 10px 0 ;
+    text-align: center;
+    /*list-style: none;*/
+}
+
+#title img {
+    width: 100px;
+    height: 80px;
+}
+
+/* 코스, 일정, 커뮤니티, 랜덤, 프로필 리스트 */
+.menu {
+    /*list-style: none;*/
+    text-align: center;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    width: 56px;
+    height: 55px;
+    margin-left: 17px;
+}
+
+.icon img {
+    margin-bottom: 10px;
+}
+/* li 태그 점 색상*/
+li::marker {
+    color: #40a0ff;
+}
+/* li 태그 텍스트 배치 */
+#recommendPlace, #myPin {
+    text-align: left;
+    width: 100px;
+}
+/* 호버 이벤트 적용 파랑색 -> 노란색 */
+/*.icon #couse-icon:hover {*/
+/*    content: url("../../images/pin-hover.png");*/
+/*}*/
+
+.icon #calendar-icon:hover {
+    content: url("../../images/icon_calendar-hover.png");
+}
+
+.icon #community-icon:hover {
+    content: url("../../images/icon_community-hover.png");
+}
+
+.icon #random-icon:hover {
+    content: url("../../images/icon_random-hover.png");
+}
+
+/* a태그 스타일 */
+.link {
+    text-decoration: none;
+    color: #131313;
+}
+
+/* 프로필 이미지 */
+#profile {
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 3% 3% 5% 5%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* 반응형 웹 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    #side-bar {
+        width: 80px;
+    }
+
+    #title img {
+        width: 80px;
+        height: 60px;
+    }
+
+    #icons {
+        width: 80px;
+    }
+
+    .icon {
+        width: 50px;
+        height: 47px;
+        margin-left: 16px;
+    }
+
+    .icon img {
+        width: 39px;
+        height: 40px;
+    }
+
+    .icon #course-icon {
+        width: 35px;
+        height: 43px;
+    }
+
+    #community-span {
+        display: inline-block;
+        width: 56px;
+    }
+
+    #profile {
+        width: 40px;
+        height: 40px;
+        padding: 5%;
+        top: 25vh;
+    }
+}
+/* 메인 */
+.course_detail {
+    margin: 1%;
+    width : 60%;
+    text-align: center;
+    vertical-align: middle;
+}
+/* 메인 장소 입력칸 */
+.course_detail #inputPlace {
+    border-top: 2px solid #40a0ff;
+    border-left: 2px solid #40a0ff;
+    border-bottom: 2px solid #40a0ff;
+    border-right: #fff;
+}
+/* 메인 장소 입력칸 오른쪽 버튼 */
+.course_detail #searchBtn {
+    border-top: 2px solid #40a0ff;
+    border-right: 2px solid #40a0ff;
+    border-bottom: 2px solid #40a0ff;
+    border-left: #fff;
+}
+a {
+    text-decoration: none;
+}
+/* 메인 뒤로가기 버튼 */
+#backToMainCourse{
+    vertical-align: top;
+    margin-right: 3%;
+}
+/* 메인 > 이미지 영역 */
+#homeDetail {
+    text-align: left;
+}
+/* 메인 > 장소이름 */
+#homeTitle {
+    margin-left: 7%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+}
+/* 메인 > 장소이름 > 카테로고리명 */
+#homeTitle .food_type {
+    color: #8D8D8D;
+    font-size: 15px;
+}
+/* 메인 > 리뷰점수 */
+#reviewStatics {
+    display: flex;
+    margin-left: 7%;
+}
+#reviewStatics span {
+    margin-right: 5%;
+}
+/* 메인 > 리뷰점수 > 수치 */
+#reviewScore {
+    color: red;
+}
+/* 메인 > 홈/리뷰 선택 */
+#homeOrReview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 5%;
+    border-bottom: 1px solid #ddd;
+}
+#homeOrReview span {
+    margin: 5% auto 1%;
+}
+a[aria-selected='true'] {
+    color: #40a0ff;
+}
+a[aria-selected='false'] {
+    color: black;
+}
+/* 메인 > 장소이름 > 홈 > 상세정보 */
+#homeContents {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 2%;
+    height: 420px;
+    overflow-y: auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+#iconReservation:hover {
+    content: url("../../images/pin.png");
+    cursor: pointer;
+}
+/* 메인 > 장소이름 > 홈 > > 상제성보 > 정보 수정 제안 링크 */
+.location_modify_suggestion {
+    text-align: right;
+    text-decoration: underline;
+}
+#modifyLink {
+    color: #8D8D8D;
+}
+/* 메인 > 장소이름 > 홈 > 상세정보 > 지번 */
+#homeContents .street_number {
+    margin-left: 5%;
+    color: #8D8D8D;
+    font-size: 15px;
+}
+/* 메인 > 장소이름 > 홈 > 상세정보 span 태그 */
+#homeContents span {
+    margin: 1% 0;
+}
+/* 메인 > 장소이름 > 홈 > 영업중 시간 */
+.location_time li {
+    margin-left: 5%;
+    list-style: none;
+}
+/* 메인 > 장소이름 > 홈 > 상세정보 url */
+#locationUrl {
+    text-decoration: underline;
+}
+/* 메인 > 장소이름 > 리뷰 > 상세정보 */
+#reviewContents {
+    margin: 3% 7% 2% 7%;
+    height: 420px;
+    overflow-y: auto;
+    text-align: left;
+}
+#userAfterCourseDate1 {
+    color: #7B7B7B;
+}
+/* 전체 버튼 */
+.btn-primary {
+    background-color: #40a0ff !important;
+    padding: 15px;
+    border: 2px solid #40a0ff;
+    border-radius: 10px;
+}
+/* 사이드바 토글 버튼 */
+.sidebar-arrow-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    text-align: center;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    z-index: 2;
+}
+.sidebar-arrow-container .sidebar-toggle {
+    position: absolute;
+    top: 50vh;
+    left: 30%;
+    width: 50px;
+    height: 80px;
+    border-left: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: url('../../images/icon_toggleButton.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+.sidebar-container.open {
+    width: 200px;
+}
+/* 장소 리스트 */
+#reviewContents {
+    margin-top: 4%;
+    height: 420px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* 스크롤바 가로길이 */
+#reviewContents::-webkit-scrollbar {
+    width: 10px;
+}
+/* 스크롤바 바영역 색상 */
+#reviewContents::-webkit-scrollbar-thumb {
+    background-color: #40a0ff;
+    border-radius: 5px;
+}
+/* 스크롤바 스크롤영역 색상 */
+#reviewContents::-webkit-scrollbar-track {
+    background-color: #E1E1E1;
+    border-radius: 5px;
+}
+/* 리뷰 리스트 */
+#reviewDetailList {
+    margin-left: -6%;
+}
+#reviewDetailList li {
+    padding-top: 3%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid #E1E1E1;
+}
+
+
+/*********************************************************/
+/*.content {*/
+/*    display: none;*/
+/*    flex-grow: 1;*/
+/*    padding: 20px; !* 사이드바와의 여백 설정 *!*/
+/*}*/
+
+/*.content.hidden {*/
+/*    display: block; !* hidden 클래스가 추가되면 content를 보여줌 *!*/
+/*}*/
+
+/*.blue {*/
+/*    color: #4098FF;*/
+/*}*/
+
+/*메모*/
+.memo-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+.memo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.memo-title h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.memo-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4098FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    resize: none; /* 크기 조절 막기 */
+}
+.memo-input:disabled {
+    background: #ffffff;
+    border: 1px solid #c3c3c3;
+}
+
+/*캘린더 날짜 선택*/
+.calendar {
+    padding: 20px;
+}
+
+.calendar h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.calendar .input__item {
+    margin-top: 10px;
+    padding: 0;
+}
+
+/*색상 선택*/
+
+.color {
+    padding: 20px;
+}
+
+.color h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.colorPalette {
+    border: 1px solid #c3c3c3;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap; /* 버튼이 넘치면 자동으로 다음 줄로 내리기 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.colorPalette button {
+    width: 40px; /* 버튼의 크기 조절 */
+    height: 40px; /* 버튼의 크기 조절 */
+    border-radius: 50%; /* 원형 모양 */
+    margin: 10px 5px; /* 버튼 간격 조절 */
+    border: none; /* 테두리 없애기 */
+    cursor: pointer; /* 마우스 오버 시 포인터 모양 */
+}
+
+.ui-datepicker { width: 270px; padding: 0; display: none; border: 0; margin-top: 10px;}
+.ui-widget.ui-widget-content { border: 0; border-radius: 3px; overflow: hidden; background: #ffffff;}
+.ui-datepicker .ui-widget-header { position: relative; padding: 6px 0 36px 0; border: 0; background: #4098FF ; color: #fff; border-radius: 0; }

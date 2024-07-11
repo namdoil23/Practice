@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NextPin</title>
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../images/NP_pavicon.png">
+    <link href="css/kakaoMap.css" rel="stylesheet"/>
+    <link href="css/html_apply/mainCourse.css" rel="stylesheet"/>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b65896833a405b71281c94d1dd53a4de&libraries=services"></script>
+</head>
+<body>
+    <!-- 사이드바 -->
+    <nav id="side-bar">
+        <div class="wrapper">
+            <!-- 메뉴들 -->
+            <div id="icons">
+                <div class="icon menu">
+                    <!-- 코스로 이동 -->
+                    <a href="#" class="link">
+                        <img src="../images/pin-hover.png" alt="코스아이콘" id="course-icon">
+                        <span>코스</span>
+                    </a>
+                    <a href="courseHomeReview2" class="link" id="recommendPlace">
+                        <li style="font-size: 0.8rem">장소추천</li>
+                    </a>
+                    <a href="myPin" class="link" id="myPin">
+                        <li style="font-size: 0.8rem">My Pin</li>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 일정으로 이동 -->
+                    <a href="calendar" class="link">
+                        <img src="../images/icon_calendar.png" alt="일정아이콘" id="calendar-icon">
+                        <span>일정</span>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 커뮤니티로 이동 -->
+                    <a href="community" class="link">
+                        <img src="../images/icon_community.png" alt="커뮤니티아이콘" id="community-icon">
+                        <span id="community-span">커뮤니티</span>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 랜덤핀으로 이동 -->
+                    <a href="randomPin" class="link">
+                        <img src="../images/icon_random.png" alt="랜덤아이콘" id="random-icon">
+                        <span>랜덤핀</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="profile">
+            <li class="menu">
+                <!-- 로그인으로 이동 -->
+                <a href="login" class="link">
+                    <img src="../images/profile.png" alt="기본 프로필 이미지">
+                </a>
+            </li>
+        </div>
+    </nav>
+
+    <div id="courseDetail" class="course_detail">
+        <div class="logo">
+            <a href="main" class="link">
+                <img src="../images/icon_NextPin_mini.png" alt="NextPin Logo">
+            </a>
+        </div>
+        <form onsubmit="searchPlaces(); return false;">
+            <div class="input-group mb-3">
+                <input type="text" id="inputPlace" class="form-control" placeholder="오늘은 어디로 가시겠어요?" value="강남 고깃집">
+                <button class="btn" type="button" id="searchBtn">
+                    <img src="../images/icon_glasses.png" alt="돋보기">
+                </button>
+            </div>
+            <div class="course_rolling_msg">
+                <span>
+                    <img src="../images/icon_horse.png" alt="맛집 이미지">
+                    교복 데이트의 정석! 롯데월드
+                    <img src="../images/icon_heart.png" alt="맛집 이미지">
+                </span>
+            </div>
+            <div class="course_location_title">
+                <span>내 주변</span>
+            </div>
+            <div class="course_location_type">
+                <label id="course_food_label">
+                    <img src="../images/icon_foodPlace.png" alt="맛집 이미지"> #맛집
+                    <input type="radio" name="courseType" id="course_food" value="course_food" checked autocomplete="off">
+                </label>
+                <label id="course_caffe_label">
+                    <img src="../images/icon_caffePlace.png" alt="카페 이미지"> #카페
+                    <input type="radio" name="courseType" id="course_caffe" value="course_caffe" autocomplete="off">
+                </label>
+                <label id="course_tour_label">
+                    <img src="../images/icon_tourPlace.png" alt="관광지 이미지"> #관광지
+                    <input type="radio" name="courseType" id="course_tour" value="course_tour" autocomplete="off">
+                </label>
+                <label id="course_rest_label">
+                    <img src="../images/icon_lodgingPlace.png" alt="숙소 이미지"> #숙소
+                    <input type="radio" name="courseType" id="course_rest" value="course_rest" autocomplete="off">
+                </label>
+            </div>
+            <div id="locationList">
+                <ul id="placesList"></ul>
+                <div id="pagination"></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="sidebar-arrow-container">
+        <div class="sidebar-toggle">
+            <img class="arrow-icon" src="../images/icon_toggleButton_arrow.png" alt="toggle icon">
+        </div>
+    </div>
+    <div class="map_wrap">
+        <div id="map" style="width:200%;height:100%;position:relative;overflow:hidden;"></div>
+    </div>
+    <script src="js/mainCourse.js"></script>
+</body>
+</html>

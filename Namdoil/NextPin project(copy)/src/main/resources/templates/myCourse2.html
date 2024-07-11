@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 파비콘 설정 -->
+    <link rel="icon" href="../images/NP_pavicon.png">
+    <!-- 사이드바 스타일 시트 적용 -->
+    <link href="css/kakaoMap.css" rel="stylesheet"/>
+    <link href="css/html_apply/myCourse2.css" rel="stylesheet"/>
+    <link href="css/jquery-ui.css" rel="stylesheet"/>
+<!--    <link href="css/html_apply/myCourse2.css" rel="stylesheet"/>-->
+
+<!--    <script src="js/jquery-3.7.1.min.js"></script>-->
+<!--    <script>-->
+<!--        // Cannot read property 'msie' of undefined 에러 나올때-->
+<!--        jQuery.browser = {};-->
+<!--        (function () {-->
+<!--            jQuery.browser.msie = false;-->
+<!--            jQuery.browser.version = 0;-->
+<!--            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {-->
+<!--                jQuery.browser.msie = true;-->
+<!--                jQuery.browser.version = RegExp.$1;-->
+<!--            }-->
+<!--        })();-->
+<!--    </script>-->
+    <!-- jQuery UI CSS 파일 -->
+    <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+    <!-- jQuery 기본 js 파일 -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <!-- jQuery UI 라이브러리 js 파일 -->
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b65896833a405b71281c94d1dd53a4de&libraries=services"></script>
+</head>
+<body>
+    <!-- 사이드바 -->
+    <nav id="side-bar">
+        <div class="wrapper">
+            <div id="title">
+                <!-- 메인화면으로 이동 -->
+                <a href="main" class="link">
+                    <img src="../images/NP_icon.png" alt="NP아이콘">
+                </a>
+            </div>
+            <!-- 메뉴들 -->
+            <div id="icons">
+                <div class="icon menu">
+                    <!-- 코스로 이동 -->
+                    <a href="mainCourse" class="link">
+                        <img src="../images/pin-hover.png" alt="코스아이콘" id="course-icon">
+                        <span>코스</span>
+                    </a>
+                    <a href="#" class="link" id="recommendPlace">
+                        <li>장소추천</li>
+                    </a>
+                    <a href="myPin" class="link" id="myPin">
+                        <li>My Pin</li>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 일정으로 이동 -->
+                    <a href="calendar" class="link">
+                        <img src="../images/icon_calendar.png" alt="일정아이콘" id="calendar-icon">
+                        <span>일정</span>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 커뮤니티로 이동 -->
+                    <a href="community" class="link">
+                        <img src="../images/icon_community.png" alt="커뮤니티아이콘" id="community-icon">
+                        <span id="community-span">커뮤니티</span>
+                    </a>
+                </div>
+                <div class="icon menu">
+                    <!-- 랜덤핀으로 이동 -->
+                    <a href="randomPin" class="link">
+                        <img src="../images/icon_random.png" alt="랜덤아이콘" id="random-icon">
+                        <span>랜덤핀</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="profile">
+            <li class="menu">
+                <!-- 로그인으로 이동 -->
+                <a href="login" class="link">
+                    <img src="../images/profile.png" alt="기본 프로필 이미지">
+                </a>
+            </li>
+        </div>
+    </nav>
+    <div id="courseDetail" class="course_detail">
+<!--        <div class="logo">-->
+<!--            <img src="../images/icon_NextPin_mini.png" alt="NextPin Logo">-->
+<!--        </div>-->
+        <form onsubmit="searchPlaces(); return false;">
+            <div class="input-group mb-3">
+                <input type="text" id="inputPlace" class="form-control" placeholder="오늘은 어디로 가시겠어요?" value="강남 고깃집">
+                <button class="btn" type="button" id="searchBtn">
+                    <img src="../images/icon_glasses.png" alt="돋보기">
+                </button>
+            </div>
+        </form>
+        <div id="homeDetail">
+            <a href="mainCourse" id="backToMainCourse">
+                <img src="../images/icon_backButton2.png" alt="뒤로가기">
+            </a>
+            <img class="search_result_image" src="../images/homeImage.png" alt="검색장소 이미지">
+        </div>
+        <div id="homeTitle">
+            <h3 class="location_title">니뽕내뽕 강남역점
+                <span class="food_type">퓨전요리</span>
+            </h3>
+            <img class="icon_location" id="iconReservation" src="../images/icon_location.png" alt="위치 찍기">
+        </div>
+        <div id="reviewStatics">
+            <span id="reviewScore">★ 4.68</span>
+            <span id="reviewAll">리뷰 <a href="#">223</a>건</span>
+            <span id="reviewBlog">블로그 리뷰 <a href="#">13</a>건</span>
+        </div>
+        <div id="homeOrReview">
+            <span><a href="#" class="tab_menu" id="homeTab" aria-selected="true"><h4 id="goHome">홈</h4></a></span>
+            <span><a href="#" class="tab_menu" id="reviewTab" aria-selected="false"><h4 id="goReview">리뷰</h4></a></span>
+        </div>
+
+        <div id="homeContents">
+            <span class="location_modify_suggestion">
+                <a href="#" id="modifyLink">정보 수정 제안</a>
+            </span>
+            <h4>상세정보</h4>
+            <span class="location_address">
+                <img class="icon_location" src="../images/icon_location2.png" alt="위치 찍기">
+                서울 강남구 강남대로98길 8 2,3층
+            </span>
+            <span class="street_number">지번 | 역삼동 817</span>
+            <span class="location_time">
+                <img class="icon_location" src="../images/icon_clock.png" alt="시간">
+                <a href="#"> 영업중</a>
+                <li>월~금 11:30 ~ 21:30</li>
+                <li>토, 일 11:30 ~ 22:00</li>
+            </span>
+            <span class="location_url">
+                <img class="icon_location" src="../images/icon_url.png" alt="url주소">
+                <a href="#" id="locationUrl"> www.nipongnaepong.co.kr</a>
+            </span>
+            <span class="location_phone">
+                <img class="icon_location" src="../images/icon_phone.png" alt="전화번호">
+                02-557-5055
+            </span>
+            <span class="location_tag">
+                <img class="icon_location" src="../images/icon_tag.png" alt="태그">
+                <a href="#"> # 데이트코스</a>
+                <a href="#"> # 혼밥</a>
+            </span>
+        </div>
+        <div id="reviewContents" style="display:none;">
+            <span class="review_counts">
+                <h5>리뷰<a href="#"> 223</a></h5>
+            </span>
+            <div id="reviewList">
+                <ul id="reviewDetailList">
+                    <li class="review_item" id="reviewItem1" style="border-bottom: 1px solid #DDD">
+                        <div style="display: flex;">
+                            <div id="userReviewProfile1" style="margin-top: 3%;">
+                                <span class="user_review">
+                                    <img src="../images/profile.png" alt="기본 프로필 이미지">
+                                </span>
+                            </div>
+                            <div id="userReviewContents1" style="margin-top:3%;">
+                                담곰
+                                <span class="user_review" id="userAfterCourseDate1">
+                                     | 후기 8 코스 3 | 2024.05.08
+                                </span>
+                                <br>
+                                <span class="user_score">
+                                    ★★★★☆
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="user_review_content1">
+                                역시 크뽕은 주기적으로 먹어줘야 하는 것 같아요!
+                                너무너무 맛있어요ㅠㅠㅠ
+                                다만 서비스 측면에서 조금 아쉬웠던 부분이 있었던 것 같아요ㅠ
+                                그래도 다음에도 또 올께요!
+                                맛있게 잘 먹었습니다!
+                            </p>
+                        </div>
+                        <div style="display: flex">
+                            <img class="review-image" src="../images/sample_review_image1.png" alt="리뷰이미지">
+                            <img class="review-image" src="../images/sample_review_image2.png" alt="리뷰이미지">
+                            <img class="review-image" src="../images/sample_review_image3.png" alt="리뷰이미지">
+                        </div>
+                    </li>
+                    <li class="review_item" id="reviewItem2">
+                        <div style="display: flex;">
+                            <div id="userReviewProfile2" style="margin-top: 3%;">
+                                <span class="user_review">
+                                    <img src="../images/profile.png" alt="기본 프로필 이미지">
+                                </span>
+                            </div>
+                            <div id="userReviewContents2" style="margin-top:3%;">
+                                담곰
+                                <span class="user_review" id="userAfterCourseDate2">
+                                     | 후기 8 코스 3 | 2024.05.08
+                                </span>
+                                <br>
+                                <span class="user_score">
+                                    ★★★★☆
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="user_review_content1">
+                                역시 크뽕은 주기적으로 먹어줘야 하는 것 같아요!
+                                너무너무 맛있어요ㅠㅠㅠ
+                                다만 서비스 측면에서 조금 아쉬웠던 부분이 있었던 것 같아요ㅠ
+                                그래도 다음에도 또 올께요!
+                                맛있게 잘 먹었습니다!
+                            </p>
+                        </div>
+                        <div style="display: flex">
+                            <img class="review-image" src="../images/sample_review_image1.png" alt="리뷰이미지">
+                            <img class="review-image" src="../images/sample_review_image2.png" alt="리뷰이미지">
+                            <img class="review-image" src="../images/sample_review_image3.png" alt="리뷰이미지">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <!--캘린더 날짜 선택-->
+        <div class="calendar">
+            <h3><span class="blue"> • </span>날짜를 입력하세요.</h3>
+            <input type="text" class="input__item" id="testDatepicker" placeholder="날짜를 선택하세요.">
+        </div>
+
+        <!--메모 div-->
+        <div class="memo-container">
+            <div class="memo-title">
+                <h3><span class="blue"> • </span>메모를 입력하세요. (선택)</h3>
+                <input type="checkbox" id="memo-active">
+            </div>
+            <textarea class="memo-input" id="memo-text" maxlength="15" placeholder="내용 입력 (15자 이내)" disabled></textarea>
+        </div>
+
+        <div class="color">
+            <h3><span class="blue"> • </span>색을 선택하세요.</h3>
+            <div class="colorPalette">
+                <button class="color-button" style="background-color: #FFC061;"></button>
+                <button class="color-button" style="background-color: #D4ADFB;"></button>
+                <button class="color-button" style="background-color: #97E285;"></button>
+                <button class="color-button" style="background-color: #F9A7A7;"></button>
+                <button class="color-button" style="background-color: #1A70D6;"></button>
+                <button class="color-button" style="background-color: #7BD0FF;"></button>
+                <button class="color-button" style="background-color: #C8C8C8;"></button>
+                <button class="color-button" style="background-color: #BADCE3;"></button>
+                <button class="color-button" style="background-color: #AFA18E;"></button>
+                <button class="color-button" style="background-color: #ECCCCF;"></button>
+            </div>
+        </div>
+    </div>
+    <!-- 사이드바 감추기/보이기 버튼 -->
+    <div class="sidebar-arrow-container">
+        <div class="sidebar-toggle">
+            <img class="arrow-icon" src="../images/icon_toggleButton_arrow.png" alt="toggle icon">
+        </div>
+    </div>
+    <div class="map_wrap">
+        <div id="map" style="width:200%;height:100vh;position:relative;overflow:hidden;"></div>
+    </div>
+    <script src="js/myCourse2.js"></script>
+<!--    <script src="js/myCourse.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-main {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-top: 5vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4.5vh;
+}
+
+#calendar .header {
+    margin: 0;
+}
+
+.header button {
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+#current-month-year {
+    font-size: 1.7em;
+    margin: 0 10px;
+}
+
+#calendar {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendar .header {
+    background-color: #FFC671;
+    height: 40px;
+}
+
+/* 날짜 */
+#calendar .day {
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* 비어있는 날짜 */
+#calendar .empty {
+    color: #f9f9f9;
+    border: 1px solid #ddd;
+
+}
+
+.prev-month,
+.next-month {
+    color: #B3B3B3;
+}
+
+.saturday {
+    color: #17A1FA;
+}
+
+.sunday {
+    color: #FF1E1E;
+}
+
+#calendar-panel {
+    min-width: 25vw;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    display: none;
+}
+
+/* panel 제목에 대한 속성 */
+#panel-title {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+    width: 20vw;
+    height: 5vh;
+    background: #FFC061;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+/*panel의 내용 속성*/
+.panel-content ul li .container {
+    background-color: #eccccf;
+    font-size: 0.8rem;
+}
+
+.card-body li {
+    list-style: none;
+}
+
+/*각 일차별 내용이 담긴 card에 대한 속성*/
+.card ul {
+    /* !*카드 색상 지정*! */
+    background-color: #FFC061;
+    border-radius: 1rem;
+    /*카드 모서리 둥글게*/
+    color: white;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    /*각 카드의 위아래 여백 주기*/
+}
+
+.card ul li {
+    border-bottom: 1px solid white;
+    /* 하단에 경계선 추가 */
+    padding: 0.8rem 1rem 0.4rem;
+    /* 위아래 여백 추가, 텍스트의 왼쪽 여백 추가 */
+}
+
+/* 마지막 li 태그에는 경계선 제거 */
+.card ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* memo 클래스 스타일 속성 */
+.memo {
+    margin-left: 15px;
+    font-size: 0.8rem;
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+/* 메모 입력 필드 스타일 */
+.memo-input {
+    width: 150px;
+    height: 24px;
+    padding: 4px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 저장 버튼 이미지 스타일 */
+.save-button {
+    width: 19px;
+    height: 19px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* 날씨 css */
+.weather {
+    color: #B3B3B3;
+    font-size: 0.8rem;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 날씨 아이콘 css */
+.weather img {
+    width: 60px;
+    height: 60px;
+}
+
+#share-button {
+    background-image: url('../../images/share_icon.png');
+    background-color: transparent;  /* 배경색을 투명하게 설정 */
+    width: 33px;
+    height: 43px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 3vh;
+    right: 3vw;
+}
+
+/* 반응형 페이지 미디어 쿼리문 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .header button {
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
+
+    #current-month-year {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    #calendar {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}

@@ -1,0 +1,139 @@
+/* 폰트설정 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 화면 */
+body {
+    font-family: 'pretendard-semibold';
+    background-color: #FAFAFA;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* 좌측 상단 x 이미지 */
+header img {
+    position: fixed;
+    width: 1vw;
+    left: 2%;
+    top: 3%;
+}
+/* 회원가입 전체 영역 */
+.signup-container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.signup-container img {
+    margin-bottom: 70px;
+}
+/* 회원가입 form 영역 */
+.signup-form {
+    width: 100%;
+}
+/* 회원가입 form의 label들 */
+.signup-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* 회원가입 form의 input 영역들 */
+input {
+    height: 53px;
+    border-radius: 10px;
+}
+/* label + message 영역들 */
+.flex-container {
+    display: flex;
+}
+/* label 영역들 */
+.flex-container label {
+    font-size: 18px;
+}
+/* message1 영역 */
+.flex-container #id-validate-message1, #id-validate-message3, #id-validate-message5, #id-validate-message6 {
+    font-weight: bold;
+    font-size: 14px;
+    color: #FF3A3A;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+/* message2 영역 */
+#id-validate-message2, #id-validate-message4 {
+    text-align: left;
+}
+/* 모든 버튼들 */
+.btn-primary {
+    background-color: #40a0ff !important;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 10px;
+}
+/* 중복확인 버튼들 */
+#button-addon1, #button-addon2 {
+    width: 110px;
+}
+/* 비밀번호 아이콘 버튼 */
+button[title='input-group-append'] {
+    background-color: #fff !important;
+    border: 1px solid #dee2e6;
+    padding-top: 15px;
+    height: 53px;
+}
+i {
+    color:#40a0ff;
+}
+/* submit 버튼 */
+button[type='submit'] {
+    width: 150px;
+    height: 50px;
+    margin-top: 5%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 19px;
+    padding-top: 2.5%;
+}
+body.modal-open .modal {
+     display: flex !important;
+     height: 100%;
+}
+body.modal-open .modal .modal-dialog {
+    margin: auto;
+}
+body.modal-open .modal .modal-content {
+    width: 450px;
+    height: 250px;
+    text-align: center;
+}
+body.modal-open .modal .modal-body {
+    padding-top: 17%;
+}
+#modalMsg1 {
+    font-size: 20px;
+}
+#modalMsg2 {
+    font-size: 18px;
+    color: red;
+}
+#modalYes, #modalNo {
+    width: 90px;
+    height: 40px;
+    margin-right: 6%;
+    border-radius: 5px;
+    color: white;
+}
+#modalYes {
+    background-color: #40a0ff;
+    border-color: #40a0ff;
+}
+#modalNo {
+    background-color: #FFC061;
+    border-color: #FFC061;
+}

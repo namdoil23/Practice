@@ -1,0 +1,512 @@
+/* 문자깨짐 방지 */
+/* 안넣으면 스타일 시트 적용 안됌 */
+@charset "utf-8";
+
+/* 글꼴 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 폰트설정 */
+@font-face {
+    font-family: 'pretendard-semibold';
+    src: url('../../webfonts/woff/Pretendard-SemiBold.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 전체 스타일 */
+body {
+    font-family: 'pretendard-semibold';
+    margin: 0;
+    display: flex;
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/*--------------------------------------------------------*/
+/*카카오맵 불러오기*/
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:100%;height:700px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+/*----------------------------------------------------------------------------*/
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+    margin: 0;
+    /* font-family: Arial, sans-serif; */
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu button {
+    width: 80px;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu button:hover {
+    background-color: #ddd;
+}
+
+.content {
+    flex-direction: column;
+    /* flex-grow: .1; */
+    /* padding: 20px; */
+}
+
+.content h1 {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.content-inner {
+    background-color: #4098FF; /* 원하는 배경색으로 설정 */
+    padding-bottom: 10px;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 50px 10px 10px; /* 오른쪽에 공간을 확보하여 버튼을 포함 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px; /* 입력창 내부에 위치하도록 설정 */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.search-button:hover {
+    filter: brightness(0.9);
+}
+
+/*코스 버튼 클릭 시 보이느 여행 일정*/
+.course-details {
+    border: 2px solid #fff9c4; /* 테두리 색상 지정 */
+    border-radius: 30px; /* 테두리의 모서리 둥글기 */
+    padding: 20px; /* 내부 여백 */
+    width: 300px; /* 너비 */
+    margin: 20px auto; /* 가운데 정렬을 위한 마진 */
+    background-color: #ffffff; /* 배경색 */
+}
+
+.day {
+    margin-bottom: 15px; /* 각 일차 사이의 여백 */
+    padding: 10px; /* 내부 여백 */
+    border-radius: 20px; /* 내부 박스의 모서리 둥글기 */
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.user1day1 {
+    background-color: #ffc061;
+}
+
+.user1day2 {
+    background-color: #7bd0ff;
+}
+
+.day h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/*유저가 클릭한 일차 글자 색상 변경*/
+.day.active h2 {
+    color: black; /* 클릭 후 변경할 글자색 */
+    transition: color 0.3s; /* 색상 변경 시 애니메이션 */
+}
+
+.day ul {
+    padding: 0;
+    margin-top: 12px;
+}
+.day li {
+    text-align: left;
+    position: relative;
+    margin-bottom: 15px; /* 각 li 요소 사이의 간격 */
+    padding-bottom: 5px; /* 선분이 li 요소 바로 아래에 위치하도록 하기 위해 padding 추가 */
+}
+.day ul li::after {
+    content: "";
+    display: block;
+    width: 100%; /* 원하는 선의 길이 */
+    height: 1px; /* 선의 두께 */
+    background-color: white; /* 선의 색깔 */
+    position: absolute;
+    bottom: -5px; /* li 요소 아래에 위치 */
+    left: 0; /* 선의 시작 위치 */
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-height: 100vh; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤바 추가 */
+}
+
+/* ranking 부분 세로 스크롤바 색상 */
+.ranking::-webkit-scrollbar {
+    width: 6px; /* 스크롤바 너비 */
+}
+
+.ranking::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 스크롤바 배경색 */
+}
+
+.ranking::-webkit-scrollbar-thumb {
+    background-color: #C8C8C8; /* 스크롤바 색상 */
+    border-radius: 3px; /* 스크롤바 모양 */
+}
+
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px 30px;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+/* .ranking-item:hover {
+    background-color: #f1f1f1;
+} */
+
+.ranking-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.profile span {
+    font-size: 14px;
+    color: gray;
+}
+
+.course-button {
+    flex-grow: 1;
+    padding: 20px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.course-button:hover {
+    background-color: #ddd;
+}
+
+/* 하트 누르기 버튼*/
+.heart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 가운데 정렬 */
+    flex-direction: column; /* 아이콘과 숫자를 세로로 배치 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative; /* 상대적 위치 지정 */
+}
+
+.heart-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    margin-bottom: 5px; /* 아이콘과 숫자 사이의 간격 조정 */
+}
+
+.heart-button span {
+    color: #000000;
+    text-align: center;
+}
+
+/*저장하기, 공유하기 버튼 container class*/
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 모든 버튼을 오른쪽으로 정렬 */
+}
+
+/* 저장하기 누르기 버튼*/
+.save-button {
+    position: relative; /* 툴팁 위치를 설정하기 위해 relative 사용 */
+    margin-left: 10px; /* 첫 번째 버튼과 두 번째 버튼 사이의 간격을 설정 */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.save-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* 저장하기 버튼 툴팁 */
+.save-button::after {
+    content: '해당 코스 저장하기(캘린더에 연동)';
+    position: absolute;
+    bottom: 100%; /* 버튼 위에 나타나도록 설정 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+/* 툴팁 활성화 */
+.save-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 공유하기 누르기 버튼*/
+.share-button {
+    position: relative; /* 툴팁 위치를 설정하기 위해 relative 사용 */
+    margin-left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.share-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* 공유하기 버튼 툴팁 */
+.share-button::after {
+    content: '해당 코스 공유하기';
+    position: absolute;
+    bottom: 100%; /* 버튼 위에 나타나도록 설정 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+/* 툴팁 활성화 */
+.share-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.course-title {
+    font-size: 18px;
+}
+
+.course-likes {
+    font-size: 16px;
+    color: #e74c3c;
+}
+
+.map-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+#map {
+    width: 200%;
+    height: 100%;
+}
+/* 사이드바 토글 버튼 */
+.sidebar-arrow-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    text-align: center;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    z-index: 2;
+}
+.sidebar-arrow-container .sidebar-toggle {
+    position: absolute;
+    top: 50vh;
+    left: 30%;
+    width: 50px;
+    height: 80px;
+    border-left: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: url('../../images/icon_toggleButton.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+.sidebar-container.open {
+    width: 200px;
+}
